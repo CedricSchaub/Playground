@@ -18,7 +18,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import com.playground.threads.BoundedQueue.BoundedQueue;
+import com.playground.net.MathExpressionTokenizer;
+import com.playground.net.Notation;
+import com.playground.net.PostfixNotation;
 
 public class AppEntry {
 
@@ -123,34 +125,15 @@ public class AppEntry {
 
 	public static void main(String[] args) throws IOException {
 		
-		BoundedQueue<Integer> queue = new BoundedQueue<>(2);
-		var runnable = new Runnable() {
-			@Override
-			public void run() {
-				try {
-					System.out.println("In Runnable");
-					Thread.sleep(5000);
-					var element = queue.dequeue();
-					System.out.println("Dequeued element: " + element);
-					
-					element = queue.dequeue();
-					System.out.println("Dequeued element: " + element);
-					
-					element = queue.dequeue();
-					System.out.println("Dequeued element: " + element);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		};
+		// 00000000 00000000 00000000 10000000
+		Notation notation = new PostfixNotation();
+		String expression = "1 + 3 * 9 / 2 + 4";
+		MathExpressionTokenizer tokenizer = new MathExpressionTokenizer(expression);
 		
-		Thread t = new Thread(runnable);
-		t.start();
+		String postfix = notation.getRepresentation(tokenizer);
 		
-		queue.enqueue(2);
-		queue.enqueue(3);
-		queue.enqueue(4);
+		System.out.println("Original expression: " + expression);
+		System.out.println("Postfix expression: " + postfix);
 		
 		
 		
