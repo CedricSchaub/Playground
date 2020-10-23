@@ -3,13 +3,12 @@
   <groupId>Playground</groupId>
   <artifactId>Playground</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Playground</name>
   <build>
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>Playground/src</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
+        <version>3.8.1</version>
         <configuration>
           <release>11</release>
         </configuration>
@@ -18,24 +17,22 @@
   </build>
   <dependencies>
   	<dependency>
-  		<groupId>com.h2database</groupId>
-  		<artifactId>h2</artifactId>
-  		<version>1.4.200</version>
+  		<groupId>org.junit.jupiter</groupId>
+  		<artifactId>junit-jupiter-api</artifactId>
+  		<version>5.7.0</version>
+  		<type>pom.sha512</type>
   	</dependency>
   	<dependency>
   		<groupId>org.junit.jupiter</groupId>
   		<artifactId>junit-jupiter</artifactId>
   		<version>5.7.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.junit.jupiter</groupId>
-  		<artifactId>junit-jupiter-api</artifactId>
-  		<version>5.7.0</version>
+  		<type>pom.sha512</type>
   	</dependency>
   	<dependency>
   		<groupId>org.junit.jupiter</groupId>
   		<artifactId>junit-jupiter-engine</artifactId>
   		<version>5.7.0</version>
+  		<type>pom.sha512</type>
   	</dependency>
   </dependencies>
 </project>
