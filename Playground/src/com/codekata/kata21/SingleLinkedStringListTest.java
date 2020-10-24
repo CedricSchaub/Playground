@@ -5,15 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class StringListTest {
+public class SingleLinkedStringListTest {
 
 	private StringList list;
 	private StringList emptyList;
 	
 	@BeforeEach
 	void init() {
-		list = new StringList();
-		emptyList = new StringList();
+		list = new SingleLinkedStringList();
+		emptyList = new SingleLinkedStringList();
 		
 		list.add("Skyr");
 		list.add("Skyrim");
@@ -120,7 +120,7 @@ public class StringListTest {
 	
 	@Test
 	void delete_only_item() {
-		StringList singleItem = new StringList();
+		StringList singleItem = new SingleLinkedStringList();
 		singleItem.add("Hello");
 		
 		boolean result = singleItem.delete(singleItem.find("Hello"));
